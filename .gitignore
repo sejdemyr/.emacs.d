@@ -1,0 +1,23 @@
+# Ignore these because they are automatically generated, contain local
+# information (e.g. safe themes, automatically installed packages), or
+# hold sensitive information.
+
+
+# Installed packages
+/elpa/
+/themes/
+/ess/
+/.cask/
+
+# Recovery and backup directories
+/auto-save-list/
+/.backup/
+
+# Temporary files and setttings for packages
+#.*
+.#.*
+/abbrev_defs/
+/eshell/
+ac-comphist.dat
+/backups/
+/places/
