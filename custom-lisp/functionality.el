@@ -1,8 +1,4 @@
 
-;; Smart M-x (e.g., command suggestions)
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
 
 ; control scrolling speed
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))

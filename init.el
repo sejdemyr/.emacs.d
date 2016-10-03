@@ -78,6 +78,11 @@
 (use-package key-bindings)
 (use-package functionality)
 
+;; Smart M-x (e.g., command suggestions)
+(use-package smex
+  :ensure t
+  :bind (("M-x" . smex))
+  :config (smex-initialize))
 
 
 ;;; emacs speaks statistics
@@ -220,32 +225,56 @@
   :ensure auctex)
 
 (use-package tex                        ; TeX editing/processing
+  :bind (:map TeX-mode-map
+              (("s-m" . TeX-command-master)))  ; key-binding to compile file
   :ensure auctex
   :defer t
   :init
   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
   (add-hook 'LaTeX-mode-hook 'flyspell-mode t)
-  ;;(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-  ;;(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   :config
   (validate-setq
-  TeX-parse-self t                      ; parse documents to provide completion for packages, etc.
-  TeX-auto-save t                       ; automatically save style information
-  TeX-electric-sub-and-superscript t    ; automatically insert braces after sub- and superscripts in math mode
-  TeX-electric-math '("\\(" . "\\)")
-  TeX-quote-after-quote t               ; don't insert magic quotes right away.
-  TeX-clean-confirm nil                 ; don't ask for confirmation when cleaning
-  TeX-source-correlate-mode t           ; provide forward and inverse search with SyncTeX
-  TeX-source-correlate-method 'synctex)
-(setq-default TeX-master nil            ; ask for the master file
-              TeX-engine 'xetex         ; use a modern engine
-              TeX-PDF-mode t))
+   TeX-parse-self t                      ; parse documents to provide completion for packages, etc.
+   TeX-auto-save t                       ; automatically save style information
+   TeX-electric-sub-and-superscript t    ; automatically insert braces after sub- and superscripts in math mode
+   TeX-electric-math '("$" . "$")
+   TeX-quote-after-quote t               ; don't insert magic quotes right away.
+   TeX-clean-confirm nil                 ; don't ask for confirmation when cleaning
+   TeX-source-correlate-mode t           ; provide forward and inverse search with SyncTeX
+   TeX-source-correlate-method 'synctex)
+  (setq-default TeX-master nil            ; ask for the master file
+                TeX-engine 'xetex         ; use a modern engine
+                TeX-PDF-mode t))
 
 (use-package tex-buf                    ; TeX buffer management
   :ensure auctex
   :defer t
   ;; Don't ask for confirmation when saving before processing
   :config (validate-setq TeX-save-query nil))
+
+(use-package tex-style                  ; TeX style
+  :ensure auctex
+  :defer t
+  :config
+  ;; Enable support for csquotes
+  (validate-setq LaTeX-csquotes-close-quote "}"
+                 LaTeX-csquotes-open-quote "\\enquote{"))
+
+(use-package tex-fold                   ; TeX folding
+  :ensure auctex
+  :defer t
+  :init (add-hook 'TeX-mode-hook #'TeX-fold-mode))
+
+(use-package tex-mode                   ; TeX mode
+  :ensure auctex
+  :defer t
+  :config
+  (font-lock-add-keywords 'latex-mode
+                          `((,(rx "\\"
+                                  symbol-start
+                                  "fx" (1+ (or (syntax word) (syntax symbol)))
+                                  symbol-end)
+                             . font-lock-warning-face))))
 
 (use-package latex                      ; LaTeX editing
   :ensure auctex
