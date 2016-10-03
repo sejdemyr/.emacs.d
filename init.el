@@ -58,6 +58,13 @@
 
 ;;; customization
 
+;; validate options
+(use-package validate
+  :ensure t
+  :init
+  (use-package seq
+    :ensure t))
+
 ;; use decent initial options
 (use-package better-defaults
   :ensure t)
@@ -77,19 +84,19 @@
   :load-path "ess/lisp/"
   :mode ("\\.R\\'" . R-mode)
   :config
-  (setq ring-bell-function #'ignore)
-  (setq ess-ask-for-ess-directory nil)
-  (setq inferior-R-program-name "/usr/local/bin/R")
-  (setq ess-local-process-name "R")
-  (setq ansi-color-for-comint-mode 'filter)
-  (setq comint-scroll-to-bottom-on-input t)
-  (setq comint-scroll-to-bottom-on-output t)
-  (setq comint-move-point-for-output t)
-  (setq ess-eval-visibly-p 'nowait)
-  (setq ess-display-help-in-browser t)   ; display help in browser
-  (setq ess-default-style 'RStudio)      ; rstudio indentation style
+  (validate-setq
+   ring-bell-function #'ignore
+   ess-ask-for-ess-directory nil
+   inferior-R-program-name "/usr/local/bin/R"
+   ess-local-process-name "R"
+   ansi-color-for-comint-mode 'filter
+   comint-scroll-to-bottom-on-input t
+   comint-scroll-to-bottom-on-output t
+   comint-move-point-for-output t
+   ess-default-style 'RStudio)     ; rstudio indentation style
+
   ;; set assignment operator
-  (setq ess-S-assign-key (kbd "s-n"))
+  ess-S-assign-key (kbd "s-n")
   (ess-toggle-S-assign-key t)
 
   ;; disable '_' shortcut
