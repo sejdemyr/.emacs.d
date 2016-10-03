@@ -17,24 +17,24 @@ All packages are installed automatically except the following, which
 are easier to install directly from github:
 
 1. [Emacs Speaks Statistics](http://ess.r-project.org/) (ESS). See the
-site for download instructions; I install it into `emacs.d/ess/` like
+site for download instructions; I install it into emacs.d/ess/ like
 so: `git clone https://github.com/emacs-ess/ESS.git ~/emacs.d/`.
 
 2. [Color themes](https://github.com/owainlewis/emacs-color-themes). I
 `git clone` this directory and run `install.sh`, which places the
-themes in `.emacs.d/themes`. You can set the theme in
-`custom-lisp/appearance.el`.
+themes in .emacs.d/themes. The theme can then be set in
+custom-lisp/appearance.el.
 
 
 ## Layout - Where do you find things? ##
 
-The `init.el` file contains (mostly) `use-package` declarations for all
-the built-in and 3rd party packages I use.  These declarations have all the
-configuration and setup for the specific packages.
+The init.el file contains (mostly) `use-package` declarations for all
+the built-in and third party packages I use.  These declarations have
+all the configuration and setup for the specific packages.
 
-There’s also `custom-lisp/` which has my own custom functions, etc.
+There’s also custom-lisp/ which has my own custom functions, etc.
 These libraries are loaded like normal packages with `use-package` in
-`init.el`.
+init.el.
 
 Thanks to [lunaryorn](https://github.com/lunaryorn/.emacs.d) for a
 similar setup.
