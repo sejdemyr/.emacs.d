@@ -16,7 +16,7 @@
 # Temporary files and setttings for packages
 #.*
 .#.*
-/abbrev_defs/
+abbrev_defs
 /eshell/
 ac-comphist.dat
 /backups/
