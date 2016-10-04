@@ -99,14 +99,14 @@
    comint-scroll-to-bottom-on-input t
    comint-scroll-to-bottom-on-output t
    comint-move-point-for-output t
-   ess-default-style 'RStudio)     ; rstudio indentation style
+   ess-default-style 'RStudio)         ; rstudio indentation style
 
   ;; set assignment operator
-  ess-S-assign-key (kbd "s-n")
+  (setq ess-S-assign-key (kbd "s-n"))
   (ess-toggle-S-assign-key t)
 
   ;; disable '_' shortcut
-  (ess-toggle-underscore nil)
+;  (ess-toggle-underscore nil)
 
   ;; set piping operator key binding
   ;; http://emacs.stackexchange.com/questions/8041/how-to-implement-the-piping-operator-in-ess-mode
