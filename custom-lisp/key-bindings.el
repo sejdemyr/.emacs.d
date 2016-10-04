@@ -89,7 +89,7 @@
  (kbd "<f6>")
  (lambda ()
    (interactive)
-   (find-file "~/dropbox/temp/temp.R")))
+   (find-file "~/dropbox/prog/r/commands.R")))
 
 ;; disable default key bindings that accomplish same thing as above
 (global-unset-key (kbd "M-f")) ; forward-word
