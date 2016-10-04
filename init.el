@@ -84,6 +84,11 @@
   :bind (("M-x" . smex))
   :config (smex-initialize))
 
+;; auto-completion
+(use-package auto-complete
+  :ensure t
+  :config (ac-config-default))
+
 
 ;;; emacs speaks statistics
 (use-package ess-site
@@ -106,7 +111,7 @@
   (ess-toggle-S-assign-key t)
 
   ;; disable '_' shortcut
-;  (ess-toggle-underscore nil)
+  (ess-toggle-underscore nil)
 
   ;; set piping operator key binding
   ;; http://emacs.stackexchange.com/questions/8041/how-to-implement-the-piping-operator-in-ess-mode
@@ -193,7 +198,6 @@
   (multi-web-global-mode 1))
 
 
-
 ;;; SQL setup
 (setq sql-postgres-program "/usr/local/Cellar/postgresql/9.5.4_1/bin/psql")
 
@@ -216,6 +220,31 @@
           '(lambda()
              (local-set-key (kbd "s-m") 'my-sql-eval)))
 
+
+;;; Spelling and syntax checking
+(use-package ispell                     ; Spell checking
+  :defer t
+  :config
+  (validate-setq
+   ispell-program-name "/usr/local/bin/aspell"
+   ispell-silently-savep t              ; Don't ask when saving the private dict
+   ;; Increase the height of the choices window to take our header line
+   ;; into account.
+   ispell-choices-win-default-height 5)
+  (unless ispell-program-name
+    (warn "No spell checker available.  Install Hunspell or ASpell for OS X.")))
+
+(use-package flyspell                   ; On-the-fly spell checking
+  :init
+  (dolist (hook '(text-mode-hook message-mode-hook))
+    (add-hook hook 'turn-on-flyspell))
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  :config
+  (validate-setq
+   flyspell-use-meta-tab nil
+   ;; Make Flyspell less chatty
+   flyspell-issue-welcome-flag nil
+   flyspell-issue-message-flag nil))
 
 
 ;;; LaTeX/AUCTex
@@ -315,7 +344,6 @@
 
 (use-package auctex-skim                ; Skim as viewer for AUCTeX
   :after tex)
-
 
 
 ;;; File handling
