@@ -315,3 +315,37 @@
 
 (use-package auctex-skim                ; Skim as viewer for AUCTeX
   :after tex)
+
+
+
+;;; File handling
+(use-package ignoramus                  ; Ignore uninteresting files everywhere
+  :ensure t
+  :config
+  ;; Ignore some additional directories and file extensions
+  (dolist (name '("*Messages*" "*ESS*"))
+    ;; Ignore some additional directories
+    (add-to-list 'ignoramus-file-basename-exact-names name))
+
+  (dolist (ext '(".fls" ".out" ".gz" ".log" ".aux"; LaTeX
+                 ))
+    (add-to-list 'ignoramus-file-endings ext))
+
+  (ignoramus-setup))
+
+(use-package recentf                    ; Save recently visited files
+  :init (recentf-mode)
+  :bind (("s-w" . recentf-open-files))
+  :config
+  (validate-setq
+   recentf-max-saved-items 200
+   recentf-max-menu-items 15
+   ;; Cleanup recent files only when Emacs is idle, but not when the mode
+   ;; is enabled, because that unnecessarily slows down Emacs. My Emacs
+   ;; idles often enough to have the recent files list clean up regularly
+   recentf-auto-cleanup 300
+   recentf-exclude (list "/\\.git/.*\\'"     ; Git contents
+                         "/elpa/.*\\'"       ; Package files
+                         "/itsalltext/"      ; It's all text temp files
+                         ;; And all other kinds of boring files
+                         #'ignoramus-boring-p)))
