@@ -255,7 +255,8 @@
 
 (use-package tex                        ; TeX editing/processing
   :bind (:map TeX-mode-map
-              (("s-m" . TeX-command-master)))  ; key-binding to compile file
+              ("s-m" . TeX-command-master)  ; key-binding to compile file
+              ("s-M" . TeX-view))
   :ensure auctex
   :defer t
   :init
