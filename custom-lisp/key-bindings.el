@@ -2,9 +2,10 @@
 ;; many, but not all, of these settings follow 'theme standard'
 ;; (assumes qwerty) at https://ergoemacs.github.io/
 
-;; first create a few custom functions that allows for deleting words
-;; without copying them to the clipboard/kill-ring
-;; http://ergoemacs.org/emacs/emacs_kill-ring.html
+;;; define custom functions
+
+;; deleting words without copying them to the kill-ring
+;; (http://ergoemacs.org/emacs/emacs_kill-ring.html)
 (defun my-delete-word (arg)
   "Delete characters forward until encountering the end of a word.
 With argument, do this that many times.
@@ -44,11 +45,8 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "s-f") 'delete-char)
 
 ;; delete previous/next word
-;;(global-set-key (kbd "s-e") 'backward-kill-word)
-;;(global-set-key (kbd "s-r") 'kill-word)
 (global-set-key (kbd "s-e") 'my-backward-delete-word)
 (global-set-key (kbd "s-r") 'my-delete-word)
-
 
 ;; move to the beginning/end of line
 (global-set-key (kbd "s-H") 'beginning-of-line)
