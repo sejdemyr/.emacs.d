@@ -76,6 +76,9 @@ This command does not push text to `kill-ring'."
 ;; ido switch buffer
 (global-set-key (kbd "s-b") 'ido-switch-buffer)
 
+;; move to next currently visible window
+(global-set-key (kbd "s-`") 'other-window)
+
 ;; move to previous/next buffer
 (global-set-key (kbd "s-.") 'next-buffer)
 (global-set-key (kbd "s-,") 'previous-buffer)
