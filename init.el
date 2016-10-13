@@ -378,3 +378,44 @@
                          "/itsalltext/"      ; It's all text temp files
                          ;; And all other kinds of boring files
                          #'ignoramus-boring-p)))
+
+
+;;; eshell configuration
+(use-package eshell
+  :ensure t
+  :init
+  (require 'em-smart)                        ; em-smart: https://www.masteringemacs.org/article/complete-guide-mastering-eshell
+  :config
+  (validate-setq
+   eshell-where-to-jump 'begin
+   eshell-review-quick-commands nil
+   eshell-smart-space-goes-to-end t))
+
+
+;;; Completion and expansion
+;; In `completion-at-point', do not pop up completion buffers for less
+;; than five candidates.  Cycle instead.
+(validate-setq completion-cycle-threshold 5)
+
+(use-package hippie-exp                 ; Powerful expansion and completion
+  :bind ("s-'" . hippie-expand)
+  :config
+  (progn
+    (validate-setq hippie-expand-try-functions-list
+                   '(try-expand-dabbrev
+                     try-expand-dabbrev-all-buffers
+                     try-expand-dabbrev-from-kill
+                     try-complete-file-name-partially
+                     try-complete-file-name
+                     try-expand-all-abbrevs
+                     try-expand-list
+                     try-expand-line
+                     try-complete-lisp-symbol-partially
+                     try-complete-lisp-symbol))))
+
+(use-package yasnippet                  ; Snippets
+  :ensure t
+  :defer t)
+
+;;; TO DO: automatically load yasnippet; add extensions
+;;; (https://www.emacswiki.org/emacs/Yasnippet)
