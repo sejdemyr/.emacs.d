@@ -98,6 +98,9 @@ This command does not push text to `kill-ring'."
 (define-key minibuffer-local-map (kbd "s-j") 'previous-history-element)
 (define-key minibuffer-local-map (kbd "s-l") 'next-history-element)
 
+;; select paragraph
+(global-set-key (kbd "s-8") 'mark-paragraph)
+
 ;; select line
 (defun select-current-line ()
   "Select the current line"
