@@ -1,15 +1,19 @@
 
-;; no beeping
-(setq ring-bell-function 'ignore)
+;; no beeping, no startup screen, and no scratch message
+(validate-setq ring-bell-function #'ignore
+               inhibit-startup-screen t
+               initial-scratch-message "")
 
-;; default window width and height
-(defun custom-set-frame-size ()
-  (add-to-list 'default-frame-alist '(height . 58))
-  (add-to-list 'default-frame-alist '(width . 196)))
-(custom-set-frame-size)
-(add-hook 'before-make-frame-hook 'custom-set-frame-size)
+;; maximize size on startup
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-; show parentheses
+;; split screen on startup
+(split-window-right)
+
+;; start with an eshell process running
+(add-hook 'emacs-startup-hook 'eshell)
+
+;; show parentheses
 (setq show-paren-delay 0)
 (show-paren-mode t)
 (setq show-paren-style 'expression)
