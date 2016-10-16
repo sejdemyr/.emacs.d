@@ -7,9 +7,6 @@
 ;; maximize size on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; split screen on startup
-(split-window-right)
-
 ;; start with an eshell process running
 (add-hook 'emacs-startup-hook 'eshell)
 
@@ -32,6 +29,12 @@
 
 ;; color of border that separates buffers
 (set-face-foreground 'vertical-border "grey22")
+
+;; line numbers in display margin
+(use-package nlinum
+  :ensure t
+  :config
+  (validate-setq nlinum-format "%d "))
 
 
 (provide 'appearance)

@@ -7,7 +7,7 @@
  ;; These settings make trackpad scrolling on OS X much more predictable
  ;; and smooth
  mouse-wheel-progressive-speed nil
- mouse-wheel-scroll-amount '(3))
+ mouse-wheel-scroll-amount '(2))
 
 ;; delete trailing whitespace before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
