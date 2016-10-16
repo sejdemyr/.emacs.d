@@ -75,6 +75,7 @@
 
 ;; load some of the custom lisp files early
 (use-package appearance)
+(use-package eshell-custom)
 (use-package key-bindings)
 (use-package functionality)
 

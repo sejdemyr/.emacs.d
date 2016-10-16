@@ -36,5 +36,14 @@
   :config
   (validate-setq nlinum-format "%d "))
 
+;; format of frame title in title bar
+(setq frame-title-format "%b")
+
+;; Shell mode
+;;(custom-set-faces
+;; '(comint-highlight-prompt ((t (:foreground "green"))))
+;; '(minibuffer-prompt ((t (:foreground "green"))))
+;; )
+
 
 (provide 'appearance)
