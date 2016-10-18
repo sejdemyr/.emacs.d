@@ -159,7 +159,7 @@
   :ensure spaceline
   :init
   (custom-set-faces
-   '(spaceline-highlight-face ((t (:foreground "FireBrick" :background "black")))))
+   '(spaceline-highlight-face ((t (:foreground "DarkSlateGray4" :background "black")))))
   (setq powerline-default-separator 'nil)
   :config
   (spaceline-helm-mode)
@@ -420,3 +420,69 @@
 
 ;;; TO DO: automatically load yasnippet; add extensions
 ;;; (https://www.emacswiki.org/emacs/Yasnippet)
+
+
+;;; Markdown/ESS with polymode
+(use-package polymode
+  :ensure t
+  :bind (:map polymode-mode-map
+              ("s-9" . ess-render-rmarkdown))  ; render rmd file (https://github.com/vspinu/polymode/issues/30)
+  :mode
+  (("\\.md\\'" . poly-markdown-mode)
+   ("\\.Rmd" . poly-markdown+r-mode))
+  :init
+  (defun ess-render-rmarkdown ()
+    "Compile R markdown (.Rmd). Should work for any output type."
+    (interactive)
+    ;; Check if attached R-session
+    (condition-case nil
+        (ess-get-process)
+      (error
+       (ess-switch-process)))
+    (let* ((rmd-buf (current-buffer)))
+      (save-excursion
+        (let* ((sprocess (ess-get-process ess-current-process-name))
+               (sbuffer (process-buffer sprocess))
+               (buf-coding (symbol-name buffer-file-coding-system))
+               (buffer-file-name-html (concat (file-name-sans-extension buffer-file-name) ".html"))
+               (R-cmd
+                (format "library(rmarkdown); rmarkdown::render(\"%s\", output_file = 'index.html')"
+                        buffer-file-name buffer-file-name-html)))
+          (message "Running rmarkdown on %s" buffer-file-name)
+          (ess-execute R-cmd 'buffer nil nil)
+          (switch-to-buffer rmd-buf)
+          (ess-show-buffer (buffer-name sbuffer) nil)))))
+  :config
+    (require 'poly-R)		; Load necessary modes
+    (require 'poly-markdown))
+
+
+;;; Markdown: markdown-mode
+;; http://jblevins.org/projects/markdown-mode/
+;; & https://github.com/basille/.emacs.d/blob/master/init.el
+(use-package markdown-mode
+  :ensure t				; Check and install if necessary
+  :commands markdown-mode		; Autoloads for markdown-mode
+  :init
+  (defun rmd-R-fenced-code-block ()
+    "Adds a fenced block for R code in Markdown"
+    (interactive)
+    (insert "\n```{r}\n\n```\n")
+    (previous-line)
+    (previous-line))
+  (defun rmd-R-inline-code ()
+    "Insert inline R code in Markdown"
+    (interactive)
+    (insert "`r `")
+    (backward-char))
+  :config
+  (progn
+    (add-hook 'markdown-mode-hook
+	      (lambda ()
+		(imenu-add-menubar-index) ; Add imenu
+		(local-set-key [s-return] 'rmd-R-fenced-code-block) ; C-return to insert a new R chunk
+		(local-set-key [M-return] 'rmd-R-inline-code)))))  ; C-S-return to insert inline R code)
+
+
+;;; load final settings
+(use-package final-settings)
