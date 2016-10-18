@@ -1,14 +1,11 @@
 
-;; no beeping, no startup screen, and no scratch message
+;; no beeping, no startup screen or message, and no scratch message
 (validate-setq ring-bell-function #'ignore
                inhibit-startup-screen t
                initial-scratch-message "")
 
 ;; maximize size on startup
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; start with an eshell process running
-(add-hook 'emacs-startup-hook 'eshell)
 
 ;; show parentheses
 (setq show-paren-delay 0)
@@ -39,11 +36,10 @@
 ;; format of frame title in title bar
 (setq frame-title-format "%b")
 
-;; Shell mode
-;;(custom-set-faces
-;; '(comint-highlight-prompt ((t (:foreground "green"))))
-;; '(minibuffer-prompt ((t (:foreground "green"))))
-;; )
+;; color of minibuffer prompt
+(custom-set-faces
+'(minibuffer-prompt ((t (:foreground "DarkSlateGray3"))))
+)
 
 
 (provide 'appearance)

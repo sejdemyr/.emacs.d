@@ -56,13 +56,5 @@ PWD is not in a git repo (or the git command is not found)."
 (use-package ansi-color
   :ensure t)
 
-(setq ansi-color-names-vector
-      ["black" "tomato" "PaleGreen2" "gold1"
-       "DeepSkyBlue1" "MediumOrchid1" "red" "white"])
-(setq ansi-color-map (ansi-color-make-color-map))
-
-(add-hook 'eshell-preoutput-filter-functions
-          'ansi-color-filter-apply)
-
 
 (provide 'eshell-custom)

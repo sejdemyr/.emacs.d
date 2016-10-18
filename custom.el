@@ -9,12 +9,12 @@
  '(elpy-rpc-python-command "python")
  '(package-selected-packages
    (quote
-    (material-theme color-theme-sanityinc-tomorrow beacon solarized-theme nlinum yasnippet validate use-package sublime-themes sqlup-mode spaceline smex seq rich-minority multi-web-mode ignoramus exec-path-from-shell better-defaults auto-complete auctex-latexmk async)))
+    (markdown-mode polymode poly-R color-theme zenburn-theme material-theme color-theme-sanityinc-tomorrow beacon solarized-theme nlinum yasnippet validate use-package sublime-themes sqlup-mode spaceline smex seq rich-minority multi-web-mode ignoramus exec-path-from-shell better-defaults auto-complete auctex-latexmk async)))
  '(python-check-command "flake8"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(linum ((t (:foreground "pink" :background "white" :box nil))))
- '(spaceline-highlight-face ((t (:foreground "FireBrick" :background "black")))))
+ '(minibuffer-prompt ((t (:foreground "DarkSlateGray3"))))
+ '(spaceline-highlight-face ((t (:foreground "DarkSlateGray4" :background "black")))))
