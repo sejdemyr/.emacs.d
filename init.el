@@ -418,6 +418,8 @@
   :ensure t
   :defer t)
 
+
+
 ;;; TO DO: automatically load yasnippet; add extensions
 ;;; (https://www.emacswiki.org/emacs/Yasnippet)
 
@@ -482,6 +484,23 @@
 		(imenu-add-menubar-index) ; Add imenu
 		(local-set-key [s-return] 'rmd-R-fenced-code-block) ; C-return to insert a new R chunk
 		(local-set-key [M-return] 'rmd-R-inline-code)))))  ; C-S-return to insert inline R code)
+
+
+;;; Minibuffer and Helm
+(validate-setq
+ history-length 1000                    ; Store more history
+ use-dialog-box nil                     ; Never use dialogs for minibuffer input
+ )
+
+(use-package savehist                   ; Save minibuffer history
+  :init (savehist-mode t)
+  :config (validate-setq savehist-save-minibuffer-history t
+                         savehist-autosave-interval 180))
+
+(use-package async                      ; Needed for helm
+  :ensure t)
+
+(use-package helm-setup)                ; Custom lisp file with all Helm configs
 
 
 ;;; load final settings

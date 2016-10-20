@@ -8,10 +8,12 @@
 /themes/
 /ess/
 /.cask/
+/helm/
 
 # Recovery and backup directories
 /auto-save-list/
 /.backup/
+/history
 
 # Temporary files and setttings for packages
 #.*

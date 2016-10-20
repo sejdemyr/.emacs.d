@@ -140,6 +140,7 @@ This command does not push text to `kill-ring'."
 (global-unset-key (kbd "s-D")) ; no 'dired'
 (global-unset-key (kbd "s-p")) ;
 (global-unset-key (kbd "s-P")) ; no printing
+(global-unset-key (kbd "s-V")) ; no pasting on upper-case (remap to show-kill-ring)
 
 
 (provide 'key-bindings)
