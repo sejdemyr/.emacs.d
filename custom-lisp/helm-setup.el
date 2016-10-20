@@ -71,18 +71,15 @@
   :defer t
   :bind
   (("s-w" . helm-recentf)
-   ;;("s-g" . helm-find-files)
+   ("s-g" . helm-find-files)
    )
   :config
   (validate-setq
-   helm-recentf-fuzzy-match t))
-
-(use-package helm-imenu                 ; Jump to tags with Helm
-  :ensure helm
-  :defer t
-  :bind (("s-5" . helm-imenu))
-  :config
-  (validate-setq helm-imenu-fuzzy-match t))
+   helm-recentf-fuzzy-match t
+     ;; Use recentf to manage file name history
+   helm-ff-file-name-history-use-recentf t
+   ;; Find libraries from `require', etc.
+   helm-ff-search-library-in-sexp t))
 
 (use-package helm-ring                  ; Browse rings and registers with Helm
   :ensure helm
@@ -110,6 +107,9 @@
 ;; maps
 (define-key helm-map (kbd "s-k") 'helm-next-line)
 (define-key helm-map (kbd "s-i") 'helm-previous-line)
+
+(define-key helm-find-files-map (kbd "s-l") 'helm-execute-persistent-action)
+(define-key helm-find-files-map (kbd "s-j") 'helm-find-files-up-one-level)
 
 ;; color of highlighted selection
 (set-face-attribute 'helm-selection nil
