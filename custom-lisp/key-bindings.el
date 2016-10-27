@@ -101,6 +101,9 @@ This command does not push text to `kill-ring'."
 ;; select paragraph
 (global-set-key (kbd "s-8") 'mark-paragraph)
 
+;; indent region (beautifies code)
+(global-set-key (kbd "s-w") 'indent-region)
+
 ;; select line
 (defun select-current-line ()
   "Select the current line"

@@ -70,9 +70,7 @@
   :ensure helm
   :defer t
   :bind
-  (("s-w" . helm-recentf)
-   ("s-g" . helm-find-files)
-   )
+  (("s-g" . helm-find-files))
   :config
   (validate-setq
    helm-recentf-fuzzy-match t

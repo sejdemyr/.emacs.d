@@ -114,7 +114,7 @@
   ;; disable '_' shortcut
   (ess-toggle-underscore nil)
 
-  ;; automatically close parens, braces etc
+  ;; automatically complete parentheses etc
   (add-hook 'ess-mode-hook #'electric-pair-mode)
 
   ;; set piping operator key binding
@@ -384,7 +384,6 @@
 
 (use-package recentf                    ; Save recently visited files
   :init (recentf-mode)
-  :bind (("s-w" . recentf-open-files))
   :config
   (validate-setq
    recentf-max-saved-items 200
