@@ -269,7 +269,6 @@
    TeX-auto-save t                       ; automatically save style information
    TeX-electric-sub-and-superscript t    ; automatically insert braces after sub- and superscripts in math mode
    TeX-electric-math '("$" . "$")
-   TeX-quote-after-quote t               ; don't insert magic quotes right away.
    TeX-clean-confirm nil                 ; don't ask for confirmation when cleaning
    TeX-source-correlate-mode t           ; provide forward and inverse search with SyncTeX
    TeX-source-correlate-method 'synctex)
@@ -310,6 +309,8 @@
 (use-package latex                      ; LaTeX editing
   :ensure auctex
   :defer t
+  :bind (:map LaTeX-mode-map
+              ("s-N" . LaTeX-environment))
   :config
   ;; Teach TeX folding about KOMA script sections
   (validate-setq
@@ -337,15 +338,30 @@
 
 (use-package reftex                     ; TeX/BibTeX cross-reference management
   :defer t
+  :bind (:map reftex-mode-map
+              ("s-n" . reftex-citation))
   :init (add-hook 'LaTeX-mode-hook #'reftex-mode)
   :config
   ;; Plug into AUCTeX
   (validate-setq
-   reftex-plug-into-AUCTeX t)
-  :diminish reftex-mode)
+   reftex-plug-into-AUCTeX t
+   reftex-insert-label-flags '(t t)     ; Automatically derive labels, and prompt for confirmation
+   reftex-default-bibliography '("/Users/simonejdemyr/dropbox/literature/bib-ejdemyr.bib"))
+  ;; Provide basic RefTeX support for biblatex
+  (unless (assq 'biblatex reftex-cite-format-builtin)
+    (add-to-list 'reftex-cite-format-builtin
+                 '(biblatex "The biblatex package"
+                            ((?\C-m . "\\citep{%l}")
+                             (?c . "\\cite{%l}")
+                             (?P . "\\citep[][p.\\]{%l}")
+                             (?e . "\\citep[e.g.,][]{%l}")
+                             (?s . "\\citep[see][]{%l}")
+                             (?t . "\\citet{%l}")
+                             (?a . "\\citeauthor{%l}")
+                             (?y . "\\citeyear{%l}"))))
+    (setq reftex-cite-format 'biblatex))
 
-(use-package auctex-skim                ; Skim as viewer for AUCTeX
-  :after tex)
+  :diminish reftex-mode)
 
 
 ;;; File handling

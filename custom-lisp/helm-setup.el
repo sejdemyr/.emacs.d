@@ -79,7 +79,8 @@
      ;; Use recentf to manage file name history
    helm-ff-file-name-history-use-recentf t
    ;; Find libraries from `require', etc.
-   helm-ff-search-library-in-sexp t))
+   helm-ff-search-library-in-sexp t
+   ))
 
 (use-package helm-ring                  ; Browse rings and registers with Helm
   :ensure helm
@@ -114,5 +115,12 @@
 ;; color of highlighted selection
 (set-face-attribute 'helm-selection nil
                     :background "grey45")
+
+;; remove first two dot files for helm-find-files
+(advice-add 'helm-ff-filter-candidate-one-by-one
+        :around (lambda (fcn file)
+                  (unless (string-match "\\(?:/\\|\\`\\)\\.\\{1,2\\}\\'" file)
+                    (funcall fcn file))))
+
 
 (provide 'helm-setup)
