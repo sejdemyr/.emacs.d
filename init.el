@@ -114,6 +114,9 @@
   ;; disable '_' shortcut
   (ess-toggle-underscore nil)
 
+  ;; automatically close parens, braces etc
+  (add-hook 'ess-mode-hook #'electric-pair-mode)
+
   ;; set piping operator key binding
   ;; http://emacs.stackexchange.com/questions/8041/how-to-implement-the-piping-operator-in-ess-mode
   (defun then_R_operator ()
@@ -135,10 +138,10 @@
             '(lambda()
                (local-set-key (kbd "s-m") 'my-ess-eval)))
 
-  ;; key binding to evaluate entire region (whether marked or not) and step
+  ;; key binding to evaluate entire region (whether marked or not)
   (defun my-ess-eval2 ()
     (interactive)
-    (call-interactively 'ess-eval-region-or-function-or-paragraph-and-step))
+    (call-interactively 'ess-eval-region-or-function-or-paragraph))
   (add-hook 'ess-mode-hook
             '(lambda()
                (local-set-key (kbd "s-M") 'my-ess-eval2)))
