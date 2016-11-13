@@ -19,7 +19,11 @@
 (setq column-number-mode t)
 
 ;; load theme
-(load-theme 'brin t)
+(load-theme 'brin t)  ;; mccarthy for a light theme
+
+;; italics for comments
+(custom-set-faces
+ '(font-lock-comment-face ((t (:italic t)))))
 
 ;; cursor style
 (setq-default cursor-type 'bar)
