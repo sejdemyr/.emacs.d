@@ -9,7 +9,7 @@ package-install` anything from melpa).
 
 ## Setup ##
 
-You need to install Emacs (currently v. 24). Homebrew provides [an
+You need to install Emacs (currently v. 25). Homebrew provides [an
 easy way to do this](http://wikemacs.org/wiki/Installing_Emacs_on_OS_X)
 if you're on a mac.
 
