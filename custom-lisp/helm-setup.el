@@ -110,6 +110,9 @@
 (define-key helm-find-files-map (kbd "s-l") 'helm-execute-persistent-action)
 (define-key helm-find-files-map (kbd "s-j") 'helm-find-files-up-one-level)
 
+(define-key helm-buffer-map (kbd "s-m") 'helm-toggle-visible-mark)         ; mark buffer in buffer mode
+(define-key helm-buffer-map (kbd "s-d") 'helm-buffer-run-kill-buffers)     ; kill marked buffers
+
 ;; color of highlighted selection
 (set-face-attribute 'helm-selection nil
                     :background "grey45")
