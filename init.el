@@ -90,6 +90,12 @@
   :ensure t
   :config (ac-config-default))
 
+(use-package auto-complete-config
+  :bind (:map ac-complete-mode-map
+              ("s-K" . ac-next)
+              ("s-I" . ac-previous)
+              ("s-L" . ac-expand)))
+
 
 ;;; emacs speaks statistics
 (use-package ess-site
@@ -115,7 +121,7 @@
   (ess-toggle-underscore nil)
 
   ;; automatically complete parentheses etc
-  (add-hook 'ess-mode-hook #'electric-pair-mode)
+  ;; (add-hook 'ess-mode-hook #'electric-pair-mode)
 
   ;; set piping operator key binding
   ;; http://emacs.stackexchange.com/questions/8041/how-to-implement-the-piping-operator-in-ess-mode
@@ -141,7 +147,7 @@
   ;; key binding to evaluate entire region (whether marked or not)
   (defun my-ess-eval2 ()
     (interactive)
-    (call-interactively 'ess-eval-region-or-function-or-paragraph))
+    (call-interactively 'ess-eval-region-or-function-or-paragraph-and-step))
   (add-hook 'ess-mode-hook
             '(lambda()
                (local-set-key (kbd "s-M") 'my-ess-eval2)))
@@ -366,6 +372,9 @@
 
   :diminish reftex-mode)
 
+(use-package auctex-skim                ; Skim as viewer for AUCTeX
+  :after tex)
+
 
 ;;; File handling
 (use-package ignoramus                  ; Ignore uninteresting files everywhere
@@ -523,3 +532,4 @@
 
 ;;; load final settings
 (use-package final-settings)
+(put 'dired-find-alternate-file 'disabled nil)

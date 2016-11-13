@@ -55,9 +55,6 @@ This command does not push text to `kill-ring'."
 ;; select entire buffer
 (global-set-key (kbd "s-a") 'mark-whole-buffer)
 
-;; ido kill buffer
-(global-set-key (kbd "s-)") 'ido-kill-buffer)
-
 ;; set mark
 (global-set-key (kbd "s-y") 'set-mark-command)
 
@@ -68,8 +65,11 @@ This command does not push text to `kill-ring'."
 (define-key isearch-mode-map (kbd "s-:") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "s-d") 'isearch-delete-char)
 
+;; ido kill buffer
+(global-set-key (kbd "s-0") 'ido-kill-buffer)
+
 ;; split screen
-(global-set-key (kbd "s-0") 'delete-window)
+(global-set-key (kbd "s-1") 'delete-window)
 (global-set-key (kbd "s-2") 'split-window-below)
 (global-set-key (kbd "s-3") 'split-window-right)
 
@@ -101,7 +101,7 @@ This command does not push text to `kill-ring'."
 ;; select paragraph
 (global-set-key (kbd "s-8") 'mark-paragraph)
 
-;; indent region (beautifies code)
+;; indent region (formats code)
 (global-set-key (kbd "s-w") 'indent-region)
 
 ;; select line
