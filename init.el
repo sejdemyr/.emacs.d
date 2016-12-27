@@ -209,7 +209,7 @@
 
 
 ;;; SQL setup
-(setq sql-postgres-program "/usr/local/Cellar/postgresql/9.5.4_1/bin/psql")
+(setq sql-postgres-program "/usr/local/Cellar/postgresql/9.6.1/bin/psql")
 
 ;; Automatic uppercase for key words: sqlup-mode (https://github.com/Trevoke/sqlup-mode.el)
 (use-package sqlup-mode
@@ -528,6 +528,20 @@
   :ensure t)
 
 (use-package helm-setup)                ; Custom lisp file with all Helm configs
+
+
+;;; Python
+(use-package ivy
+  :ensure t) ;;needed for elpy
+
+(use-package python
+  :ensure t
+  :mode ("\\.py" . python-mode)
+  :config
+  (use-package elpy
+    :ensure t
+    :commands elpy-enable
+    :config (elpy-enable)))
 
 
 ;;; load final settings
