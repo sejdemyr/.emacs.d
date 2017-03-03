@@ -18,5 +18,8 @@
 ;; delete selected text when typing
 (delete-selection-mode t)
 
+;; set fill column
+(setq-default fill-column 80)
+
 
 (provide 'functionality)
