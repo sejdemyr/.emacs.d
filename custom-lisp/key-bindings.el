@@ -24,6 +24,16 @@ This command does not push text to `kill-ring'."
   (interactive "p")
   (my-delete-word (- arg)))
 
+;; deleting all excessive spaces in a region
+(defun just-one-space-in-region (beg end)
+  "replace all whitespace in the region with single spaces"
+  (interactive "r")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region beg end)
+      (goto-char (point-min))
+      (while (re-search-forward "\\s-+" nil t)
+        (replace-match " ")))))
 
 ;;; set key bindings
 
@@ -55,8 +65,9 @@ This command does not push text to `kill-ring'."
 ;; select entire buffer
 (global-set-key (kbd "s-a") 'mark-whole-buffer)
 
-;; set mark
-(global-set-key (kbd "s-y") 'set-mark-command)
+;; shrink whitespace
+(global-set-key (kbd "s-y") 'fixup-whitespace)
+(global-set-key (kbd "s-Y") 'just-one-space-in-region)
 
 ;; isearch
 (global-set-key (kbd "s-;") 'isearch-forward)
