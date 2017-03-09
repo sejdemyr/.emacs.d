@@ -70,7 +70,7 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "s-Y") 'just-one-space-in-region)
 
 ;; set mark
-(global-set-key (kbd "s-9") 'set-mark-command)
+(global-set-key (kbd "s-(") 'set-mark-command)
 
 ;; isearch
 (global-set-key (kbd "s-;") 'isearch-forward)
