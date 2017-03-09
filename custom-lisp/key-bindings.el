@@ -47,8 +47,8 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "s-o") 'forward-word)
 
 ;; move up or down a full paragraph
-(global-set-key (kbd "s-U") 'backward-paragraph)
-(global-set-key (kbd "s-O") 'forward-paragraph)
+(global-set-key (kbd "M-U") 'backward-paragraph)
+(global-set-key (kbd "M-O") 'forward-paragraph)
 
 ;; delete previous/next char
 (global-set-key (kbd "s-d") 'delete-backward-char)
@@ -68,6 +68,9 @@ This command does not push text to `kill-ring'."
 ;; shrink whitespace
 (global-set-key (kbd "s-y") 'fixup-whitespace)
 (global-set-key (kbd "s-Y") 'just-one-space-in-region)
+
+;; set mark
+(global-set-key (kbd "s-9") 'set-mark-command)
 
 ;; isearch
 (global-set-key (kbd "s-;") 'isearch-forward)

@@ -395,7 +395,7 @@
   :init (recentf-mode)
   :config
   (validate-setq
-   recentf-max-saved-items 200
+   recentf-max-saved-items 500
    recentf-max-menu-items 15
    ;; Cleanup recent files only when Emacs is idle, but not when the mode
    ;; is enabled, because that unnecessarily slows down Emacs. My Emacs
@@ -515,7 +515,7 @@
 
 ;;; Minibuffer and Helm
 (validate-setq
- history-length 1000                    ; Store more history
+ history-length 3000                    ; Store more history
  use-dialog-box nil                     ; Never use dialogs for minibuffer input
  )
 
