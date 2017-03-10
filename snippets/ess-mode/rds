@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: read rds
+# key: rds
+# --
+read_rds("$0")

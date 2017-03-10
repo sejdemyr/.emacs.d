@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ggplot
+# key: gg
+# --
+ggplot($1, aes(x = $2, y = $3)) +
+ geom_$4() +
+ xlab("$5") +
+ ylab("$6") $0
