@@ -441,14 +441,13 @@
                      try-complete-lisp-symbol-partially
                      try-complete-lisp-symbol))))
 
-(use-package yasnippet                  ; Snippets
+(use-package yasnippet                  ; Snippets (https://www.emacswiki.org/emacs/Yasnippet)
+  :bind (("s-t" . yas-expand)
+         ("s-T" . yas-next-field-or-maybe-expand))
   :ensure t
-  :defer t)
-
-
-
-;;; TO DO: automatically load yasnippet; add extensions
-;;; (https://www.emacswiki.org/emacs/Yasnippet)
+  :defer t
+  :config
+  (yas-global-mode 1))
 
 
 ;;; Markdown/ESS with polymode
