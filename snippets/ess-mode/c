@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: character vector
+# key: c
+# --
+c("$1", "$0")

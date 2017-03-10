@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: git push
-# key: push
+# key: p
 # --
 git push origin master

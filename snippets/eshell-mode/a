@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: git add
+# key: a
+# --
+git add $0
