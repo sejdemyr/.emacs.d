@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: viridis color
+# key: vc
+# --
+scale_color_viridis(guide = T, discrete = T, begin = 0.2, end = 0.8, option = "A") +$0

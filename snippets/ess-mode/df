@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: filter
+# key: df
+# --
+filter($0)

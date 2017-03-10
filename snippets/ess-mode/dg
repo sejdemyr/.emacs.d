@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: group by
+# key: dg
+# --
+group_by($0)
