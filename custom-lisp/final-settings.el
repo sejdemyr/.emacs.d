@@ -4,6 +4,6 @@
 
 ;; find file and split screen on startup
 (split-window-right)
-(find-file "/Users/simonejdemyr/dropbox/scratch.R")
+(find-file "/Users/ejdemyr/dropbox/scratch.R")
 
 (provide 'final-settings)

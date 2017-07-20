@@ -38,7 +38,7 @@
 (add-to-list 'load-path custom-lisp-dir)
 
 ;; set load path to themes
-(add-to-list 'custom-theme-load-path "themes")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
 ;; set package archives
 (require 'package)
