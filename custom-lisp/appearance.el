@@ -18,13 +18,6 @@
 ; show column number in mode line by default
 (setq column-number-mode t)
 
-;; load theme
-;;(load-theme 'brin t)  ;; mccarthy for a light theme
-;; (use-package nord-theme
-;;   :ensure t
-;;   :config
-;;   (validate-setq nord-comment-brightness 18))
-
 (use-package vscode-dark-plus-theme
   :ensure t
   :config
