@@ -47,9 +47,6 @@
 '(minibuffer-prompt ((t (:foreground "DarkSlateGray3"))))
 )
 
-;; font
-;;(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-15"))
-
 ;; Set default font
 (set-face-attribute 'default nil
                     :family "Menlo"
