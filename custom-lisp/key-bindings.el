@@ -59,18 +59,18 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "s-r") 'my-delete-word)
 
 ;; move to the beginning/end of line
-(global-set-key (kbd "s-H") 'beginning-of-line)
+(global-set-key (kbd "s-a") 'beginning-of-line)
 (global-set-key (kbd "s-h") 'end-of-line)
 
 ;; select entire buffer
-(global-set-key (kbd "s-a") 'mark-whole-buffer)
+(global-set-key (kbd "s-A") 'mark-whole-buffer)
 
 ;; shrink whitespace
 (global-set-key (kbd "s-y") 'fixup-whitespace)
 (global-set-key (kbd "s-Y") 'just-one-space-in-region)
 
 ;; set mark
-(global-set-key (kbd "s-(") 'set-mark-command)
+(global-set-key (kbd "s-SPC") 'set-mark-command)
 
 ;; isearch
 (global-set-key (kbd "s-;") 'isearch-forward)

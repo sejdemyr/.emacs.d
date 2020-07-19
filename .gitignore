@@ -9,6 +9,10 @@
 /ess/
 /.cask/
 /helm/
+/elpy/
+smex-items
+tramp
+/url/
 
 # Recovery and backup directories
 /auto-save-list/

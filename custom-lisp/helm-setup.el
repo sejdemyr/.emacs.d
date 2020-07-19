@@ -67,14 +67,13 @@
   :config (setq helm-buffers-fuzzy-matching t))
 
 (use-package helm-files                 ; Manage files with Helm
-  :ensure helm
   :defer t
   :bind
   (("s-g" . helm-find-files))
   :config
-  (validate-setq
+  (setq
    helm-recentf-fuzzy-match t
-     ;; Use recentf to manage file name history
+   ;; Use recentf to manage file name history
    helm-ff-file-name-history-use-recentf t
    ;; Find libraries from `require', etc.
    helm-ff-search-library-in-sexp t

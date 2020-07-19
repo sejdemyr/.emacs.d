@@ -2,8 +2,10 @@
 ;;; packages (for now, only ESS) to be loaded
 
 
-;; find file and split screen on startup
-(split-window-right)
-(find-file "/Users/ejdemyr/dropbox/scratch.R")
+;; find files and split screen on startup
+;;(find-file "/Users/ejdemyr/Dropbox (Facebook)/server-setup.txt")
+;;(split-window-right)
+;;(find-file "/Users/ejdemyr/Dropbox (Facebook)/scratch.R")
+
 
 (provide 'final-settings)

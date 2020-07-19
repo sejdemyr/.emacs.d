@@ -9,7 +9,7 @@
  '(elpy-rpc-python-command "python")
  '(package-selected-packages
    (quote
-    (auctex ivy elpy helm-bibtex helm-eshell helm-flyspell helm-unicode helm-ag helm-swoop hydra helm-core flycheck helm markdown-mode polymode poly-R color-theme zenburn-theme material-theme color-theme-sanityinc-tomorrow beacon solarized-theme nlinum yasnippet validate use-package sublime-themes sqlup-mode spaceline smex seq rich-minority multi-web-mode ignoramus exec-path-from-shell better-defaults auto-complete auctex-latexmk async)))
+    (magit py-autopep8 py-isort py-pyment blacken restart-emacs company-box ess helm-files nord-theme sql-indent sql-mode stan-mode ein auctex ivy elpy helm-bibtex helm-eshell helm-flyspell helm-unicode helm-ag helm-swoop hydra helm-core flycheck helm markdown-mode polymode poly-R color-theme zenburn-theme material-theme color-theme-sanityinc-tomorrow beacon solarized-theme nlinum yasnippet validate use-package sublime-themes sqlup-mode spaceline smex seq rich-minority multi-web-mode ignoramus exec-path-from-shell better-defaults auto-complete auctex-latexmk async)))
  '(python-check-command "flake8")
  '(safe-local-variable-values
    (quote

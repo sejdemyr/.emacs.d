@@ -13,17 +13,26 @@
 (setq show-paren-style 'expression)
 
 ;; color for matching parentheses
-(set-face-background 'show-paren-match-face "#3D3D3D")
+;; (set-face-background 'show-paren-match-face "#3D3D3D")
 
 ; show column number in mode line by default
 (setq column-number-mode t)
 
 ;; load theme
-(load-theme 'brin t)  ;; mccarthy for a light theme
+;;(load-theme 'brin t)  ;; mccarthy for a light theme
+;; (use-package nord-theme
+;;   :ensure t
+;;   :config
+;;   (validate-setq nord-comment-brightness 18))
+
+(use-package vscode-dark-plus-theme
+  :ensure t
+  :config
+  (load-theme 'vscode-dark-plus t))
 
 ;; italics for comments
 (custom-set-faces
- '(font-lock-comment-face ((t (:italic t)))))
+'(font-lock-comment-face ((t (:normal t)))))   ;; :italics
 
 ;; cursor style
 (setq-default cursor-type 'bar)
@@ -44,6 +53,16 @@
 (custom-set-faces
 '(minibuffer-prompt ((t (:foreground "DarkSlateGray3"))))
 )
+
+;; font
+;;(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-15"))
+
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "Menlo"
+                    :height 140
+                    :weight 'normal
+                    :width 'normal)
 
 
 (provide 'appearance)
