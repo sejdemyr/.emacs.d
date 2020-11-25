@@ -29,6 +29,10 @@
               ("s-[" . elpy-nav-indent-shift-left)
               ("s-]" . elpy-nav-indent-shift-right)
               )
+  :config
+  (validate-setq
+   elpy-modules (delq 'elpy-module-flymake elpy-modules) ; disable flymake to use flycheck instead
+   )
   )
 
 (use-package python
