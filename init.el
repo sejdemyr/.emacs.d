@@ -664,6 +664,21 @@
 (global-set-key (kbd "s-[") 'untab-region)
 (global-set-key (kbd "s-]") 'tab-region)
 
+
+;;; Org mode setup -----------------------
+(use-package org
+  :config
+  (setq org-capture-templates
+    '(("t" "Todo" entry (file "~/Dropbox/org/work.org")
+       "* TODO %?\n%U" :empty-lines 1)
+      ("p" "Personal Todo" entry (file "~/Dropbox/org/personal.org")
+       "* TODO %?\n%U\n   %c" :empty-lines 1)
+      ("n" "Note" entry (file "~/Dropbox/org/work.org")
+       "* NOTE %?\n%U" :empty-lines 1)
+      )
+    )
+  )
+
 ;; Threshold for splitting windows horizontally (avoid)
 (setq split-height-threshold nil)
 
