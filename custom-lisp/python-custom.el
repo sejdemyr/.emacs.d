@@ -43,6 +43,7 @@
    python-shell-interpreter "/Users/sejdemyr/xp-env/bin/xp-python"
    python-shell-completion-native-enable nil
    python-indent-guess-indent-offset-verbose nil
+   python-shell-interpreter-args "-i"
    )
 
   (defun custom-restart-python ()
