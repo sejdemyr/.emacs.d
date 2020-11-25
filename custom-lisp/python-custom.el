@@ -24,7 +24,7 @@
   :defer t
   :init (advice-add 'python-mode :before 'elpy-enable)
   :bind (:map elpy-mode-map
-              ("s-m" . elpy-shell-send-statement-and-step)
+              ("s-m" . elpy-shell-send-statement)
               ("s-M" . elpy-shell-send-group-and-step)
               ("s-[" . elpy-nav-indent-shift-left)
               ("s-]" . elpy-nav-indent-shift-right)
