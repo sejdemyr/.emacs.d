@@ -665,7 +665,7 @@
 (global-set-key (kbd "s-]") 'tab-region)
 
 ;; Threshold for splitting windows horizontally (avoid)
-(setq split-height-threshold 1)
+(setq split-height-threshold nil)
 
 ;; Threshold for splitting windows vertically
 (setq split-width-threshold 260)
