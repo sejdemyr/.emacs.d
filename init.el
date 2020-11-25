@@ -97,24 +97,23 @@
   :ensure t
   :init
   (global-company-mode)
+  ;; disable for R-mode
+  (add-hook 'R-mode-hook (lambda () (company-mode -1)))
   :bind (:map company-active-map
          ("s-k" . company-select-next)
          ("s-i" . company-select-previous)
-         ;;("s-a" . company-abort)
+         ("s-a" . company-abort)
          ("s-l" . company-complete)
          )
   :config
   (validate-setq
-   company-idle-delay 0.3
-   company-minimum-prefix-length 2
+   company-idle-delay 0.2
+   company-minimum-prefix-length 1
    company-selection-wrap-around t
    company-tooltip-limit 20
    )
   )
 
-;; (use-package company-box
-;;   :ensure t
-;;   :hook (company-mode . company-box-mode))
 
 
 ;;; emacs speaks statistics
