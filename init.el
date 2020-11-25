@@ -129,6 +129,10 @@
               ("s-l" . ac-expand))
   )
 
+;;; line numbers
+(use-package display-line-numbers
+  :hook (prog-mode . display-line-numbers-mode))
+
 ;;; emacs speaks statistics
 (use-package ess
   :ensure t
