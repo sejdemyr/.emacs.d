@@ -73,5 +73,13 @@
   (set-face-foreground 'highlight-indent-guides-character-face "dimgray")
   )
 
+(use-package flycheck
+  :ensure t
+  :hook (python-mode . flycheck-mode)
+  :config
+  (validate-setq
+    flycheck-flake8-maximum-line-length 99
+  ))
+
 
 (provide 'python-custom)
