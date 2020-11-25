@@ -59,6 +59,17 @@
 
   (add-hook 'python-mode-hook 'my/python-company-jedi-config)
   )
+
+(use-package highlight-indent-guides
+  :config
+  (validate-setq
+   highlight-indent-guides-method 'character
+   highlight-indent-guides-auto-enabled nil
+   )
+  ;;(add-hook 'python-mode-hook 'highlight-indent-guides-mode)
+  (set-face-background 'highlight-indent-guides-odd-face "dimgray")
+  (set-face-background 'highlight-indent-guides-even-face "dimgray")
+  (set-face-foreground 'highlight-indent-guides-character-face "dimgray")
   )
 
 
