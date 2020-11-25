@@ -55,4 +55,9 @@
                     :width 'normal)
 
 
+;; macOS title bar
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
+
 (provide 'appearance)
