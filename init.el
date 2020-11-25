@@ -114,7 +114,20 @@
    )
   )
 
+;; auto-completion (as an option, mainly for R)
+(use-package auto-complete
+  :ensure t
+  :config
+  (ac-config-default)
+  (global-auto-complete-mode -1)
+  )
 
+(use-package auto-complete-config
+  :bind (:map ac-complete-mode-map
+              ("s-k" . ac-next)
+              ("s-i" . ac-previous)
+              ("s-l" . ac-expand))
+  )
 
 ;;; emacs speaks statistics
 (use-package ess
